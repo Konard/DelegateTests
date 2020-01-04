@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace DelegateTests
+namespace DelegateTests.Console
 {
     public class ClassTest
     {
-        private static void f(string str) { Console.WriteLine($"f({str})"); }
-        private static void g(string str) { Console.WriteLine($"g({str})"); }
-        private static void h(string str) { Console.WriteLine($"h({str})"); }
+        private static void f(string str) { System.Console.WriteLine($"f({str})"); }
+        private static void g(string str) { System.Console.WriteLine($"g({str})"); }
+        private static void h(string str) { System.Console.WriteLine($"h({str})"); }
 
         private class foo
         {
@@ -17,26 +17,26 @@ namespace DelegateTests
             public foo(int d_id)
             {
                 this.d_id = d_id;
-                this.bar_calls = 0;
-                this.cbs_calls = 0;
+                bar_calls = 0;
+                cbs_calls = 0;
             }
 
             public void bar(string str)
             {
-                Console.WriteLine($"foo({this.d_id})::bar({str})");
-                this.bar_calls++;
+                System.Console.WriteLine($"foo({d_id})::bar({str})");
+                bar_calls++;
             }
 
             public void cbs(string str)
             {
-                Console.WriteLine($"foo({this.d_id})::cbs({str})");
-                this.cbs_calls++;
+                System.Console.WriteLine($"foo({d_id})::cbs({str})");
+                cbs_calls++;
             }
         }
 
         public static void Run()
         {
-            Action<string> d0 = (string s) => { };
+            Action<string> d0 = (s) => { };
 
             foo f0 = new foo(0);
             foo f1 = new foo(1);

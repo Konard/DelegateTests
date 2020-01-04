@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DelegateTests
+namespace DelegateTests.Console
 {
     class Program
     {
@@ -18,8 +18,8 @@ namespace DelegateTests
             x += () => (a++, 1).Item2;
             x -= () => (a++, 0).Item2;
             var r = x();
-            Console.WriteLine($"a = {a}");
-            Console.WriteLine($"r = {r}");
+            System.Console.WriteLine($"a = {a}");
+            System.Console.WriteLine($"r = {r}");
         }
     }
 }
